@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  
+  /* UNDO Color Palette - Integrated with shadcn/ui */
+  --undo-warm-sand: #F6F2EB;
+  --undo-soft-charcoal: #1D1D1F;
+  --undo-recovery-blue: #7ACFD6;
+  --undo-detox-green: #C4FF61;
+  --undo-dusty-rose: #F2C6C2;
+  
+  /* Map UNDO colors to shadcn/ui design tokens */
+  --background: var(--undo-warm-sand);
+  --foreground: var(--undo-soft-charcoal);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--undo-soft-charcoal);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--undo-soft-charcoal);
+  --primary: var(--undo-recovery-blue);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: var(--undo-dusty-rose);
+  --secondary-foreground: var(--undo-soft-charcoal);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: var(--undo-detox-green);
+  --accent-foreground: var(--undo-soft-charcoal);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: var(--undo-recovery-blue);
+  --chart-1: var(--undo-recovery-blue);
+  --chart-2: var(--undo-detox-green);
+  --chart-3: var(--undo-dusty-rose);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: var(--undo-soft-charcoal);
+  --sidebar-primary: var(--undo-recovery-blue);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: var(--undo-dusty-rose);
+  --sidebar-accent-foreground: var(--undo-soft-charcoal);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: var(--undo-recovery-blue);
+}
+
+.dark {
+  --background: var(--undo-soft-charcoal);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: var(--undo-recovery-blue);
+  --primary-foreground: var(--undo-soft-charcoal);
+  --secondary: var(--undo-dusty-rose);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: var(--undo-detox-green);
+  --accent-foreground: var(--undo-soft-charcoal);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--undo-recovery-blue);
+  --chart-1: var(--undo-recovery-blue);
+  --chart-2: var(--undo-detox-green);
+  --chart-3: var(--undo-dusty-rose);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--undo-recovery-blue);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: var(--undo-dusty-rose);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: var(--undo-recovery-blue);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* UNDO Custom Component Variants */
+@layer components {
+  /* Health Card with enhanced shadcn/ui integration */
+  .health-card {
+    @apply transition-all duration-200 ease-in-out hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* HRV Circle with smooth animations */
+  .hrv-circle {
+    @apply transition-transform duration-300 ease-in-out hover:scale-105;
+  }
+  
+  /* Custom button variants for UNDO branding */
+  .btn-recovery {
+    @apply bg-[var(--undo-recovery-blue)] text-white hover:opacity-90 transition-opacity;
+  }
+  
+  .btn-detox {
+    @apply bg-[var(--undo-detox-green)] text-[var(--undo-soft-charcoal)] hover:opacity-90 transition-opacity;
+  }
+  
+  .btn-dusty {
+    @apply bg-[var(--undo-dusty-rose)] text-[var(--undo-soft-charcoal)] hover:opacity-90 transition-opacity;
+  }
+}
+
+/* Custom Slider Styling for UNDO theme */
+@layer components {
+  .slider-undo [data-orientation="horizontal"] {
+    @apply h-2;
+  }
+  
+  .slider-undo [data-orientation="horizontal"] .slider-track {
+    @apply bg-secondary;
+  }
+  
+  .slider-undo [data-orientation="horizontal"] .slider-range {
+    @apply bg-[var(--undo-recovery-blue)];
+  }
+  
+  .slider-undo [data-orientation="horizontal"] .slider-thumb {
+    @apply bg-[var(--undo-recovery-blue)] border-2 border-white shadow-lg;
+  }
+}
+
+/* Enhanced Progress component styling */
+@layer components {
+  .progress-undo {
+    @apply bg-secondary;
+  }
+  
+  .progress-undo .progress-indicator {
+    @apply bg-[var(--undo-recovery-blue)] transition-all duration-500 ease-out;
+  }
+}
+
+/* Custom Tab styling for bottom navigation */
+@layer components {
+  .tabs-undo .tabs-list {
+    @apply bg-white border-t border-border;
+  }
+  
+  .tabs-undo .tabs-trigger {
+    @apply data-[state=active]:text-[var(--undo-recovery-blue)] data-[state=active]:bg-transparent;
+    @apply text-muted-foreground hover:text-foreground transition-colors;
+  }
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .mobile-padding {
+    @apply p-4;
+  }
+  
+  .mobile-text-lg {
+    @apply text-lg;
+  }
+}
+
+/* Remove redundant custom styles - now handled by shadcn/ui */
+/* Removed: .undo-bg-warm-sand, .undo-text-charcoal, etc. - use CSS variables directly */
+/* Removed: .action-button - use shadcn/ui Button variants */
+/* Removed: manual transitions - handled by shadcn/ui components */
+
